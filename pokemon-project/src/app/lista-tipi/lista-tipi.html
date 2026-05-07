@@ -1,1 +1,10 @@
-<p>lista-tipi works!</p>
+<h1>Categorie pokemon: </h1>
+
+    <ul>
+        @for(t of tipi; track t.name){
+            <li>
+                <a [routerLink]="['/lista', t.name]">{{t.name}}</a>
+            </li>
+        }
+    </ul>
+
