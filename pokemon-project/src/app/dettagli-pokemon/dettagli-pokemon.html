@@ -1,1 +1,26 @@
-<p>dettagli-pokemon works!</p>
+<div class="container">
+    @if (loading) {
+        <p>Caricamento dettagli di {{ nomePokemon }}...</p>
+    } @else {
+        <div class="card">
+            <h1>{{ pokemon.name}}</h1>
+            
+            <img [src]="pokemon.sprites.front_default" [alt]="pokemon.name" style="width: 200px;">
+
+            <div class="info">
+                <p><strong>Altezza:</strong> {{ pokemon.height }}</p>
+                <p><strong>Peso:</strong> {{ pokemon.weight }}</p>
+                
+                <h3>Abilità:</h3>
+                <ul>
+                    @for (a of pokemon.abilities; track a.ability.name) {
+                        <li>{{ a.ability.name }}</li>
+                    }
+                </ul>
+            </div>
+        </div>
+    }
+
+    <hr>
+    <button routerLink="/tipi">Torna alla Home</button>
+</div>

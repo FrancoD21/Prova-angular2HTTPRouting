@@ -24,10 +24,17 @@ export interface PokemonListResponse {
 
 // --- 3. MODELLI PER IL DETTAGLIO DEL POKEMON ---
 // (URL: https://pokeapi.co/api/v2/pokemon/{id})
-export interface PokemonDetail {
-  name: string;           
-  base_experience: number; 
+export interface PokemonDetails {
+  name: string;
+  height: number;
+  weight: number;
   sprites: {
-    front_default: string; 
+    front_default: string; // Questo è l'URL dell'immagine che mostrerai
   };
+  abilities: {
+    ability: {
+      name: string;
+    };
+  }[];
+
 }

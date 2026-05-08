@@ -1,1 +1,17 @@
-<p>lista-pokemon works!</p>
+<h2>Pokémon di tipo: {{ tipoSelezionato }}</h2>
+
+@if (loading) {
+  <div>Caricamento Pokémon...</div>
+} @else {
+  <ul>
+    @for (p of pokemonList; track p.pokemon.name) {
+      <li>
+        <a [routerLink]="['/dettagli', p.pokemon.name]">
+          {{ p.pokemon.name }}
+        </a>
+      </li>
+    }
+  </ul>
+}
+
+<button routerLink="/tipi">Torna alla lista tipi</button>
